@@ -105,6 +105,12 @@ merge: $(WORK)
 $(SRCDIR64) $(SRCDIR32) $(PRIVDIR) $(PRIVHEADERSDIR) $(PRIVDIR64) $(PRIVDIR32) $(WORK):
 	@mkdir -p $@
 
+practice-trace:
+	vsim -c -do "do cvw-arch-verif.do practice-trace"
+
+cover-report:
+	./bin/coverreport-trace.py
+
 clean:
 	rm -rf fcov/unpriv/*
 	rm -rf $(SRCDIR64) $(SRCDIR32) $(PRIVHEADERSDIR) $(PRIVDIR64) $(PRIVDIR32) $(WORK)
